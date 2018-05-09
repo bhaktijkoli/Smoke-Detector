@@ -1,58 +1,26 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
 import React, { Component } from 'react';
-import {
-  Platform,
-  StyleSheet,
-  Text,
-  View
-} from 'react-native';
+import { StackNavigator } from 'react-navigation';
 
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' +
-    'Cmd+D or shake for dev menu',
-  android: 'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
-});
+import Home from './app/components/Home/Home'
+import WifiScan from './app/components/WifiScan/WifiScan'
+import WifiPassword from './app/components/WifiScan/WifiPassword'
 
-type Props = {};
-export default class App extends Component<Props> {
+import { Container, Content, Text, StyleProvider } from 'native-base';
+import getTheme from './native-base-theme/components';
+import platform from './native-base-theme/variables/platform';
+
+export default class App extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit App.js
-        </Text>
-        <Text style={styles.instructions}>
-          {instructions}
-        </Text>
-      </View>
+      <StyleProvider style={getTheme(platform)}>
+        <AppNavigator />
+      </StyleProvider>
     );
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
+const AppNavigator = StackNavigator({
+  Home: { screen: Home, },
+  WifiScan: { screen: WifiScan, },
+  WifiPassword: { screen: WifiPassword, },
 });
