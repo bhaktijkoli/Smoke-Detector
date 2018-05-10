@@ -8,12 +8,10 @@ import { NavigationActions } from 'react-navigation'
 
 import axios from 'axios'
 
-import ButtonEx from './../Other/ButtonEx'
-
+import Mqtt from './../../utils/mqtt';
 import Styles from './../../utils/styles';
 
 const WifiScanAction = NavigationActions.reset({ index: 0, actions: [ NavigationActions.navigate({ routeName: 'WifiScan' }) ] })
-
 
 class Home extends Component {
   static navigationOptions = {
@@ -35,6 +33,7 @@ class Home extends Component {
     });
     setTimeout(function () {
       this.setState({connectionState: 2});
+      Mqtt.init();
     }.bind(this), 5000);
   }
   componentWillUnmount() {
