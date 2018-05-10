@@ -39,7 +39,7 @@ module.exports.init = () => {
       mqtt.subscribe(topicHead);
     })
     .catch((responseObject) => {
-      console.log(responseObject);
+      console.log(JSON.parse(responseObject));
     })
   }
 }

@@ -1,1 +1,1 @@
-module.exports.MQTT_ADDRESS = "ws://192.168.0.110:3000/"
+module.exports.MQTT_ADDRESS = "ws://bhkdev2.tk:3010/"
