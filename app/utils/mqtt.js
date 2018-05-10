@@ -1,5 +1,7 @@
 import { Client, Message } from 'react-native-paho-mqtt';
 import consts from './consts';
+import  PushNotification from 'react-native-push-notification';
+
 
 const myStorage = {
   setItem: (key, item) => {
@@ -24,6 +26,9 @@ module.exports.init = () => {
       var topic = message.destinationName;
       var payload = message.payloadString;
       console.log("MQTT Message Recieved: Topic: " + topic + " payload: " + payload);
+      PushNotification.localNotification({
+        message: "Alert", // (required)
+      });
     });
 
     // connect the client

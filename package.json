@@ -13,6 +13,7 @@
     "react-native": "0.55.3",
     "react-native-exit-app": "^1.0.0",
     "react-native-paho-mqtt": "^0.1.1",
+    "react-native-push-notification": "^3.0.2",
     "react-navigation": "^1.5.11"
   },
   "devDependencies": {
