@@ -58,7 +58,7 @@ class WifiPassword extends Component {
       }
     }).catch((res)=>{
       this.setState({process:false})
-      Alert.alert( 'Error connecting', 'Invalid password.', [ {text: 'OK', onPress: () => console.log('OK Pressed')}, ], { cancelable: false } )
+      Alert.alert( 'We were unable to reach', 'Got disconnected before getting a response, try restarting the app.', [ {text: 'OK', onPress: () => console.log('OK Pressed')}, ], { cancelable: false } )
     })
   }
   getButtonText() {
